@@ -1,4 +1,4 @@
-# platform-terraform-blueprints
+# Usando Blueprints no Terraform !
 Blueprints usados no Terraform para criar infraestrutura cloud segura, escalável e padronizada, utilizando AWS SSM, FinOps e boas práticas de IaC.
 
 🚀 Platform Terraform Blueprints
