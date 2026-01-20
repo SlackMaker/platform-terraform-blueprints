@@ -19,4 +19,17 @@ Eles abstraem a complexidade da infraestrutura e permitem que os times criem amb
 Exemplos de blueprints:
 VPC padrão
 Bastion com acesso via SSM
-Ambientes isolados por conta ou região
+
+Este repositório demonstra uma arquitetura pronta para produção utilizando Terraform e AWS, com foco em modularidade, boas práticas de segurança.
+Funcionalidades
+- Design modular reutilizável
+- Blueprints para decisões de arquitetura
+- Stacks por ambiente (dev, hml, prod)
+- Bastion host via AWS SSM sem necessidade de SSH público
+- Ambientes isolados por conta ou região
+
+modules/     -> Componentes reutilizáveis (VPC, subnets, EC2, SG, SSM, etc.)  
+blueprints/  -> Arquitetura padrão para diferentes workloads  
+stacks/      -> Stacks específicas de cada ambiente (dev, hml, prod)  
+bootstrap/   -> Configuração do Terraform Remote State e infraestrutura base
+
