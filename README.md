@@ -19,21 +19,21 @@ Objetivos do Projeto
 - Facilitar evolução para multicloud
 
 Conceito de Blueprints
-Blueprints representam arquiteturas prontas, compostas por múltiplos módulos Terraform, abstraindo a complexidade da infraestrutura.
-Eles permitem que equipes criem ambientes completos com mínima configuração, mantendo consistência e boas práticas.
+
+Blueprints representam arquiteturas prontas, compostas por múltiplos módulos Terraform, abstraindo a complexidade da infraestrutura. Eles permitem que equipes criem ambientes completos com mínima configuração, mantendo consistência e boas práticas.
 
 Exemplos de Blueprints incluídos:
-VPC padrão
-Bastion host com acesso via SSM
-Funcionalidades Principais
-Design modular e reutilizável
-Blueprints para decisões de arquitetura
-Stacks organizadas por ambiente (dev, hml, prod)
-Bastion host via AWS SSM sem necessidade de SSH público
-Ambientes isolados por conta ou região
+- VPC padrão
+- Bastion host com acesso via SSM
+- Funcionalidades Principais
+- Design modular e reutilizável
+- Blueprints para decisões de arquitetura
+- Stacks organizadas por ambiente (dev, hml, prod)
+- Bastion host via AWS SSM sem necessidade de SSH público
+- Ambientes isolados por conta ou região
 
 Estrutura do Repositório
-modules/     -> Componentes reutilizáveis (VPC, subnets, EC2, SG, SSM, etc.)
-blueprints/  -> Arquitetura padrão para diferentes workloads
-stacks/      -> Stacks específicas de cada ambiente (dev, hml, prod)
-bootstrap/   -> Configuração do Terraform Remote State e infraestrutura base
+- modules/     -> Componentes reutilizáveis (VPC, subnets, EC2, SG, SSM, etc.)
+- blueprints/  -> Arquitetura padrão para diferentes workloads
+- stacks/      -> Stacks específicas de cada ambiente (dev, hml, prod)
+- bootstrap/   -> Configuração do Terraform Remote State e infraestrutura base
