@@ -17,7 +17,7 @@ A plataforma foi desenhada para **separar responsabilidades** e **reduzir acopla
 **- Blueprints (blueprints/)**
 Arquiteturas prontas que combinam múltiplos módulos, representando decisões de arquitetura padrão da plataforma.
 
-***- Stacks por ambiente (stacks/)**
+**- Stacks por ambiente (stacks/)**
   Implementações específicas para cada ambiente:
   - dev
   - hml
@@ -60,13 +60,13 @@ Eles permitem que equipes:
 - Preparado para integração com **Infracost (FinOps)**
 
 📁 **Estrutura do Repositório**
-```text
+```
 .
 ├── modules/     # Componentes reutilizáveis (VPC, Subnets, EC2, SG, SSM, etc.)
 ├── blueprints/  # Arquiteturas padrão compostas por múltiplos módulos
 ├── stacks/      # Stacks específicas por ambiente (dev, hml, prod)
 └── bootstrap/   # Remote State, lock e infraestrutura base do Terraform
-```text
+```
 
 ▶️ **Fluxo de Execução**
 1 - **Bootstrap**
