@@ -4,30 +4,30 @@ variable "vpc_name" {
 }
 
 variable "cidr_block" {
-  description = "CIDR block da VPC"
+  description = "Bloco CIDR da VPC"
   type        = string
 }
 
 variable "enable_dns_hostnames" {
-  description = "Habilitar DNS hostnames"
+  description = "Habilitar hostnames DNS na VPC"
   type        = bool
   default     = true
 }
 
 variable "enable_dns_support" {
-  description = "Habilitar DNS support"
+  description = "Habilitar suporte ao DNS na VPC"
   type        = bool
   default     = true
 }
 
 variable "create_igw" {
-  description = "Criar Internet Gateway"
+  description = "Define se o Internet Gateway deve ser criado"
   type        = bool
   default     = true
 }
 
 variable "tags" {
-  description = "Tags para recursos"
+  description = "Mapa de tags aplicadas aos recursos"
   type        = map(string)
   default     = {}
 }

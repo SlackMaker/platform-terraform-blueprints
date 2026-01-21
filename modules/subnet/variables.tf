@@ -37,7 +37,7 @@ variable "create_internet_route" {
 }
 
 variable "internet_gateway_id" {
-  description = "ID do Internet Gateway"
+  description = "ID do Internet Gateway associado à VPC"
   type        = string
   default     = null
 }

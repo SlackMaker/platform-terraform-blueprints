@@ -1,39 +1,89 @@
-Usando Blueprints no Terraform 🚀
+🚀 **Terraform Blueprints – Plataforma de Infraestrutura como Código**
+Este repositório apresenta uma **plataforma de Terraform Blueprints** para criação de infraestrutura em nuvem de forma **segura, escalável e padronizada**, seguindo **boas práticas de Infraestrutura como Código (IaC), Platform Engineering, SRE e DevOps.**
 
-Este repositório apresenta Blueprints Terraform para criar infraestrutura em nuvem de forma segura, escalável e padronizada, utilizando AWS SSM, boas práticas de IaC e preparado para FinOps.
+A solução é **orientada à AWS**, utiliza **AWS Systems Manager (SSM)** como mecanismo padrão de acesso (eliminando a necessidade de SSH público) e já está **preparada para práticas de FinOps**, como análise de custos com **Infracost**.
 
-Plataforma Terraform Blueprints
-Esta plataforma oferece uma base estruturada de Infraestrutura como Código (IaC), separando claramente:
-- Módulos: componentes reutilizáveis (VPC, subnets, EC2, SG, SSM, etc.)
-- Blueprints: arquiteturas prontas que combinam múltiplos módulos
-- Stacks por ambiente: dev, hml e prod
+🧱 **Plataforma Terraform Blueprints**
+A plataforma foi desenhada para **separar responsabilidades** e **reduzir acoplamento**, organizando a infraestrutura em camadas bem definidas:
+**- Módulos (modules/)**
+  Componentes reutilizáveis e independentes, como:
+  - VPC
+  - Subnets
+  - Security Groups
+  - EC2
+  - IAM
+  - AWS SSM
 
-O objetivo é demonstrar práticas profissionais de Platform Engineering, SRE e DevOps, permitindo que times criem ambientes completos com configuração mínima e máxima segurança e padronização.
+**- Blueprints (blueprints/)**
+Arquiteturas prontas que combinam múltiplos módulos, representando decisões de arquitetura padrão da plataforma.
 
-Objetivos do Projeto
-- Criar uma base reutilizável de infraestrutura
-- Padronizar ambientes Dev, HML e Prod
-- Reduzir acoplamento entre recursos
-- Demonstrar o uso de AWS SSM Session Manager (sem SSH público)
-- Preparar o terreno para FinOps com Infracost
-- Facilitar evolução para multicloud
+***- Stacks por ambiente (stacks/)**
+  Implementações específicas para cada ambiente:
+  - dev
+  - hml
+  - prod
 
-Conceito de Blueprints
+**- Bootstrap (bootstrap/)**
+  Infraestrutura base responsável por:
+  - Remote State (S3)
+  - Lock de estado (DynamoDB)
+  - Fundamentos para execução segura do Terraform
+Essa abordagem permite que times criem ambientes completos com **mínima configuração**, mantendo **consistência, segurança e governança.**
 
-Blueprints representam arquiteturas prontas, compostas por múltiplos módulos Terraform, abstraindo a complexidade da infraestrutura. Eles permitem que equipes criem ambientes completos com mínima configuração, mantendo consistência e boas práticas.
+🎯 **Objetivos do Projeto**
+- Criar uma **base reutilizável e extensível** de infraestrutura
+- Padronizar ambientes **Dev, HML e Prod**
+- Reduzir o acoplamento entre recursos e stacks
+- Demonstrar o uso de **AWS SSM Session Manager** como padrão de acesso (sem SSH público)
+- Preparar o ambiente para **FinOps**, com visibilidade e controle de custos
+- Facilitar a evolução para **multi-conta** e **multicloud**
+- Servir como **referência prática** de Platform Engineering e DevOps
 
-Exemplos de Blueprints incluídos:
+🧩 **Conceito de Blueprints**
+**Blueprints8** representam **arquiteturas prontas**, compostas por múltiplos módulos Terraform, que abstraem a complexidade da infraestrutura.
+
+Eles permitem que equipes:
+- Provisionem ambientes completos rapidamente
+- Sigam padrões corporativos de segurança e arquitetura
+- Tomem decisões de arquitetura de forma centralizada
+
+**Exemplos de Blueprints incluídos:**
 - VPC padrão
-- Bastion host com acesso via SSM
-- Funcionalidades Principais
-- Design modular e reutilizável
-- Blueprints para decisões de arquitetura
-- Stacks organizadas por ambiente (dev, hml, prod)
-- Bastion host via AWS SSM sem necessidade de SSH público
-- Ambientes isolados por conta ou região
+- Bastion Host com acesso exclusivo via AWS SSM
 
-Estrutura do Repositório
-- modules/     -> Componentes reutilizáveis (VPC, subnets, EC2, SG, SSM, etc.)
-- blueprints/  -> Arquitetura padrão para diferentes workloads
-- stacks/      -> Stacks específicas de cada ambiente (dev, hml, prod)
-- bootstrap/   -> Configuração do Terraform Remote State e infraestrutura base
+✨ **Funcionalidades Principais**
+- Design **modular, reutilizável e desacoplado**
+- Blueprints como abstração de decisões arquiteturais
+- Stacks organizadas por ambiente (dev, hml, prod)
+- Bastion Host com **AWS SSM (sem SSH público)**
+- Ambientes isolados por **conta AWS** ou **região**
+- Preparado para integração com **Infracost (FinOps)**
+
+📁 **Estrutura do Repositório**
+.
+├── modules/     # Componentes reutilizáveis (VPC, Subnets, EC2, SG, SSM, etc.)
+├── blueprints/  # Arquiteturas padrão compostas por múltiplos módulos
+├── stacks/      # Stacks específicas por ambiente (dev, hml, prod)
+├── bootstrap/   # Remote State, lock e infraestrutura base do Terraform
+
+▶️ **Fluxo de Execução**
+1 - **Bootstrap**
+Responsável por preparar a conta AWS para o uso do Terraform:
+cd bootstrap
+terraform init
+terraform plan
+terraform apply
+
+2 - **Stacks por Ambiente**
+Após o bootstrap, cada ambiente pode ser provisionado de forma independente:
+cd stacks/dev   # ou hml / prod
+terraform init
+terraform plan
+terraform apply
+
+**Considerações Finais**
+Este projeto foi criado para:
+- Servir como **plataforma base corporativa**
+- Facilitar a adoção de **boas práticas de IaC**
+- Demonstrar um modelo moderno de **Platform Engineering**
+- Evoluir naturalmente para **multi-conta, multi-região e multicloud**

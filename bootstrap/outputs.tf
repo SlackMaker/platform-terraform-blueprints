@@ -7,4 +7,3 @@ output "dynamodb_table_name" {
   description = "Nome da tabela DynamoDB usada para lock do Terraform"
   value       = aws_dynamodb_table.terraform_lock.name
 }
-
