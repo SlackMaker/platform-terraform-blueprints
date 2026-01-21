@@ -60,10 +60,13 @@ Eles permitem que equipes:
 - Preparado para integração com **Infracost (FinOps)**
 
 📁 **Estrutura do Repositório**
-- modules     # Componentes reutilizáveis (VPC, Subnets, EC2, SG, SSM, etc.)
-- blueprints  # Arquiteturas padrão compostas por múltiplos módulos
-- stacks      # Stacks específicas por ambiente (dev, hml, prod)
-- bootstrap   # Remote State, lock e infraestrutura base do Terraform
+```text
+.
+├── modules/     # Componentes reutilizáveis (VPC, Subnets, EC2, SG, SSM, etc.)
+├── blueprints/  # Arquiteturas padrão compostas por múltiplos módulos
+├── stacks/      # Stacks específicas por ambiente (dev, hml, prod)
+└── bootstrap/   # Remote State, lock e infraestrutura base do Terraform
+```text
 
 ▶️ **Fluxo de Execução**
 1 - **Bootstrap**
