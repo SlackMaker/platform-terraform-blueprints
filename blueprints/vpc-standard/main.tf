@@ -1,3 +1,6 @@
+############################
+# Blueprint VPC Standard  #
+############################
 module "vpc" {
   source = "../../modules/vpc"
 
@@ -6,6 +9,9 @@ module "vpc" {
   tags       = var.tags
 }
 
+############################
+# Subnet padrão da VPC    #
+############################
 module "subnet" {
   source = "../../modules/subnet"
 
@@ -16,6 +22,9 @@ module "subnet" {
   tags              = var.tags
 }
 
+############################
+# Security Group padrão   #
+############################
 module "security_group" {
   source = "../../modules/security-group"
 
